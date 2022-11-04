@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Liste des produits</title>
+</head>
+<body>
+		<table  class="table table-borderless table-striped table-hover ">
+			<caption>Listes des produits</caption>	
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prix</th>
+				<th>Plus d'infos</th>
+				<th>Modification</th>
+				<th>Suppression</th>
+			</tr>
+		</thead>
+			<tbody>
+			
+				<tr *ngFor ="let produit of produits">
+					<td>{{produit.nom  }}</td>
+					<td>{{produit.prix | fcfa}}</td>
+					<td>
+						<button class="btn btn-info" (click) = "detail(produit)">Détail</button>	
+					</td>
+					<td>
+						<button class="btn btn-primary" (click)="clicked = produit">Modifier</button>	
+					</td>
+					<td>
+						<button class="btn btn-danger " (click)="delProduit(produit) ">Supprimer</button>
+					</td> 
+				</tr>
+			</tbody>	
+		</table>
+
+		<div class="container" *ngIf="clicked != null">
+			<div class="col-sm-8 col-sm-offset-2">
+				<form (ngSubmit)="onSubmit(form)" #form="ngForm" class="form-horizontal">
+					<div class="form-group" >
+						<label >Nom : </label>
+						<input id="nom" class="form-control" type="text" name="nom" value="{{clicked.nom}}"
+											[(ngModel)]='clicked.nom' required>
+					</div>
+					<div class="form-group">
+						<label>Prix : </label>
+						<input id="prix" class="form-control" type="number" name="prix" value="{{clicked.prix}}" 
+											[(ngModel)]='clicked.prix' required>
+					</div>
+					<div class="form-group">
+						<label>Quantité en stock : </label>
+						<input id="qtite" class="form-control" type="number" name="qtite"  value="{{clicked.quantiteEnStock}}" 
+											[(ngModel)]='clicked.quantiteEnStock' required>
+					</div>
+					<div class="form-group">
+						<label>Description : </label>
+						<input id="description" class="form-control" type="text" name="description" value="{{clicked.description}}"  
+											[(ngModel)]='clicked.description' required>
+					</div>
+					<button type="submit" class="btn btn-success" >Modifier</button>
+				</form>	
+			</div>
+		</div>
+</body>
+</html>

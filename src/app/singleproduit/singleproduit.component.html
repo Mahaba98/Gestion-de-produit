@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="col-xs-12">
+        <div>
+			<ul id ="liste" class="list-unstyled" >
+				<li [ngClass] ="{color: noir}"> <h4>Nom : {{produit.nom}}</h4></li>
+				<li [ngClass] ="{color: noir}"> <h4>Prix : {{produit.prix | fcfa}}</h4></li>
+				<li [ngClass] ="{color: noir}"> <h4>Quantité en stock : {{produit.quantiteEnStock}}</h4></li>
+				<li [ngClass] ="{color: noir}"> <h4>Description : {{produit.description}}</h4></li>
+			</ul>
+		</div>
+    </div> 
+    <button class="btn btn-default" (click)="retour()">Retour à la liste des produits</button>
+</div>

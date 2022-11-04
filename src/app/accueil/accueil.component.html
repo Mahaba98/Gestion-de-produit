@@ -1,0 +1,22 @@
+<div class="container">
+    <div>
+       <h2>BIENVENUE DANS L'APPLICATION DE GESTION DE PRODUIT</h2> 
+        <table  class="table table-borderless table-striped table-hover ">
+			<caption>LISTE DES PRODUITS</caption>
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prix</th>
+			</tr>
+		</thead>
+			<tbody>
+				<tr *ngFor ="let produit of produits">
+					<td>{{produit.nom  }}</td>
+					<td>{{produit.prix | fcfa}}</td>
+				</tr>
+			</tbody>
+		
+		</table>
+    </div
+        >
+</div>
